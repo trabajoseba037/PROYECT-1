@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Día de la Madre - Nilda</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffd6e8 0%, #c5e3f6 50%, #ffd9f2 100%);
+            overflow: hidden;
+        }
+
+        .floating-hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0;
+            animation: floatUp 6s infinite ease-in-out;
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 20%; animation-delay: 1s; }
+        .heart:nth-child(3) { left: 30%; animation-delay: 2s; }
+        .heart:nth-child(4) { left: 40%; animation-delay: 0.5s; }
+        .heart:nth-child(5) { left: 50%; animation-delay: 1.5s; }
+        .heart:nth-child(6) { left: 60%; animation-delay: 2.5s; }
+        .heart:nth-child(7) { left: 70%; animation-delay: 0.8s; }
+        .heart:nth-child(8) { left: 80%; animation-delay: 1.8s; }
+        .heart:nth-child(9) { left: 90%; animation-delay: 2.2s; }
+
+        @keyframes floatUp {
+            0% {
+                bottom: -50px;
+                opacity: 0;
+                transform: translateX(0) rotate(0deg);
+            }
+            50% {
+                opacity: 0.8;
+                transform: translateX(30px) rotate(180deg);
+            }
+            100% {
+                bottom: 100%;
+                opacity: 0;
+                transform: translateX(-30px) rotate(360deg);
+            }
+        }
+
+        .card {
+            position: relative;
+            z-index: 2;
+            width: 500px;
+            height: 650px;
+            background: linear-gradient(145deg, #fff5f8, #ffffff);
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(255, 105, 180, 0.3);
+            padding: 50px 40px;
+            text-align: center;
+            animation: cardEntrance 1s ease-out;
+            border: 3px solid rgba(255, 182, 193, 0.4);
+        }
+
+        @keyframes cardEntrance {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .flower-decoration {
+            position: absolute;
+            font-size: 50px;
+            animation: rotate 4s infinite linear;
+        }
+
+        .flower-top-left {
+            top: -15px;
+            left: -15px;
+        }
+
+        .flower-top-right {
+            top: -15px;
+            right: -15px;
+            animation-direction: reverse;
+        }
+
+        .flower-bottom-left {
+            bottom: -15px;
+            left: -15px;
+        }
+
+        .flower-bottom-right {
+            bottom: -15px;
+            right: -15px;
+            animation-direction: reverse;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header {
+            font-size: 28px;
+            color: #ff69b4;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .name {
+            font-size: 56px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6eb4, #ff9ed8, #b565d8, #88d4f5);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 20px 0;
+            animation: gradientShift 3s ease infinite;
+            text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .heart-icon {
+            font-size: 70px;
+            margin: 30px 0;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10%, 30% { transform: scale(1.2); }
+            20%, 40% { transform: scale(1.1); }
+        }
+
+        .message {
+            font-size: 22px;
+            color: #d67ba5;
+            line-height: 1.8;
+            margin: 30px 0;
+            font-style: italic;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .message strong {
+            color: #ff69b4;
+            font-size: 24px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 18px;
+            color: #b89fc9;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: sparkleAnimation 2s infinite;
+            box-shadow: 0 0 10px #ffd700;
+        }
+
+        .sparkle:nth-child(1) { top: 15%; left: 15%; animation-delay: 0s; }
+        .sparkle:nth-child(2) { top: 25%; right: 20%; animation-delay: 0.5s; }
+        .sparkle:nth-child(3) { top: 60%; left: 10%; animation-delay: 1s; }
+        .sparkle:nth-child(4) { top: 70%; right: 15%; animation-delay: 1.5s; }
+
+        @keyframes sparkleAnimation {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts">
+        <div class="heart">💖</div>
+        <div class="heart">💕</div>
+        <div class="heart">💗</div>
+        <div class="heart">💓</div>
+        <div class="heart">💖</div>
+        <div class="heart">💕</div>
+        <div class="heart">💗</div>
+        <div class="heart">💓</div>
+        <div class="heart">💖</div>
+    </div>
+
+    <div class="card">
+        <div class="flower-decoration flower-top-left">🌸</div>
+        <div class="flower-decoration flower-top-right">🌺</div>
+        <div class="flower-decoration flower-bottom-left">🌼</div>
+        <div class="flower-decoration flower-bottom-right">🌷</div>
+        
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+
+        <div class="header">✨ Feliz Día de la Madre ✨</div>
+        
+        <div class="name">Nilda</div>
+        
+        <div class="heart-icon">💝</div>
+        
+        <div class="message">
+            <strong>Eres la luz</strong> que ilumina nuestros días,<br>
+            el abrazo que cura todas las heridas,<br>
+            y el <strong>amor infinito</strong> que nos guía.<br>
+            ¡Gracias por ser la mejor mamá!
+        </div>
+        
+        <div class="footer">
+            Con todo nuestro amor 💕
+        </div>
+    </div>
+</body>
+</html>
